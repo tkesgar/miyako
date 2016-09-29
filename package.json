@@ -1,0 +1,38 @@
+{
+  "name": "miyako",
+  "version": "0.0.0",
+  "description": "Simple app to download photos and photo albums",
+  "private": true,
+  "scripts": {
+    "watch": "brunch w -s",
+    "clean": "del-cli public/** !public",
+    "build": "brunch b -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkesgar/miyako.git"
+  },
+  "author": "Ted Kesgar <t.kesgar@live.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "auto-reload-brunch": "^2.7.1",
+    "babel-brunch": "^6.0.6",
+    "babel-preset-latest": "^6.14.0",
+    "babel-preset-react": "^6.16.0",
+    "brunch": "^2.8.2",
+    "clean-css-brunch": "^2.0.0",
+    "css-brunch": "^2.6.1",
+    "del-cli": "^0.2.0",
+    "javascript-brunch": "^2.0.0",
+    "less-brunch": "^2.7.1",
+    "postcss-brunch": "^0.5.0",
+    "postcss-cssnext": "^2.8.0",
+    "uglify-js-brunch": "^2.0.1"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0"
+  }
+}
