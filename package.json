@@ -1,6 +1,6 @@
 {
   "name": "miyako",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Simple app to download photos and photo albums",
   "private": true,
   "scripts": {
