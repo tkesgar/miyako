@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Navbar = () => (
-  <nav className="navbar navbar-default navbar-static-top">
+  <nav className="navbar navbar-inverse navbar-static-top">
     <div className="container">
 
       <div className="navbar-header">

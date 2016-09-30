@@ -1,3 +1,9 @@
+@import 'https://fonts.googleapis.com/css?family=Space+Mono';
+
+.monospace() {
+  font-family: 'Space Mono', monospace;
+}
+
 /*
   Using System UI Fonts In Web Design: A Quick Practical Guide
   https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
@@ -14,6 +20,31 @@ body {
 body {
   font-size: 16px;
   line-height: 1.5;
+
+  // Safeguard for really small screens
+  @media (max-width: 480px) {
+    font-size: 14px;
+    line-height: 1.428;
+  }
+}
+
+// Form input
+.form-input {
+  textarea {
+
+    // Change font style
+    .monospace();
+    font-size: 14px;
+    line-height: 1.428;
+
+    // Only allow vertical resizing
+    resize: vertical;
+  }
+}
+
+// Full width for Empty image list well
+.image-list-empty.well {
+  width: 100%;
 }
 
 // Flex image list container
@@ -26,24 +57,47 @@ body {
     flex: 0 1 auto;
     padding: 10px;
 
-    @media (min-width: 768px) {
-      width: 50%;
-    }
-
-    @media (min-width: 992px) {
-      width: 33.3333%;
-    }
+    width: 100% / 2;
+    @media (min-width: 768px) { width: 100% / 3; }
+    @media (min-width: 992px) { width: 100% / 4; }
+    @media (min-width: 1200px) { width: 100% / 5; }
   }
 }
 
 // Custom styling for image panel
 .image {
+
+  // Change font style, allow breaks on filenames
+  .panel-heading {
+    .monospace();
+    font-size: 14px;
+    line-height: 1;
+    word-wrap: break-word;
+  }
+
+  // Allows image to fill the panel width
   .panel-body {
     padding: 0;
   }
-
   .panel-image {
     width: 100%;
     height: auto;
   }
+}
+
+// Footer
+.footer {
+
+  // Use smaller font size
+  font-size: 14px;
+  line-height: 1.428;
+
+  // Add some spacing
+  margin-top: 40px;
+  padding: 40px 0;
+
+  // Change color and add background
+  background: #f8f8f8;
+  color: #777;
+  border-top: 1px solid #e7e7e7;
 }

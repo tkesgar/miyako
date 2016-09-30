@@ -4,30 +4,34 @@
 
 Miyako is a simple app to download photos and photo albums from various URLs.
 
-I create this to make downloading various good reference photos from Facebook, Twitter, and pixiv easier. Downloading all of them one-by-one is a complete waste of time. Also, I want to learn Redux.
+I create this to make downloading various good reference photos from Facebook, Twitter, and pixiv easier. Downloading all of them one-by-one is a complete waste of time. Also, I want to learn React and Redux.
+
+And turns out to perform scraping I have to write server backend anyway.
 
 ## Supported URLs
 
 ### Currently available
 
- - Regular images
+  - Regular images
 
 ### Planned
 
-- Zerochan images
-- Deviantart images
-- Facebook photos
-- Facebook photo albums
-- Twitter tweets with photos (and multiple images)
-- pixiv images
-- pixiv manga (multiple images)
+  - Zerochan images
+  - Deviantart images
+  - Facebook photos
+  - Facebook photo albums
+  - Twitter tweets with photos (and multiple images)
+  - pixiv images
+  - pixiv manga (multiple images)
+
+  The problem is we are unable to perform client-side scraping, so we have to either find APIs or write a backend.
 
 ## How to Use
 
- - Put all the URLs, one at each line, into the box.
- - Click the "Process" button to, well, start processing.
- - Buy some coffee.
- - Click "Download" to download the images as one compressed zip file.
+  - Put all the URLs, one at each line, into the box.
+  - Click the "Process" button to, well, start processing.
+  - Buy some coffee.
+  - Click "Download" to download the images as one compressed zip file.
 
 Be careful not to put too many images (especially Facebook photo albums with many photos) or your browser might crash. All the processing are happened browser-side.
 

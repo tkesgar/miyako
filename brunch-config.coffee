@@ -12,6 +12,10 @@ module.exports =
   server:
     hostname: '0.0.0.0'
 
+  watcher:
+    awaitWriteFinish: true
+    usePolling: true
+
   plugins:
     babel:
       presets: ['latest', 'react']

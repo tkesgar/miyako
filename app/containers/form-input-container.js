@@ -1,35 +1,52 @@
 import { connect } from 'react-redux'
-import { addImage, addAlert } from '../actions'
+import { addImage, addAlert, clearAlert } from '../actions'
 import FormInput from '../components/form-input'
-import { rawProcessor } from '../lib/processors'
+import processURL from '../lib/process-url'
 
-const findProcessor = (url) => {
-  return 'RAW_IMAGE'
-}
+const promiseURL = (dispatch) => (url) => {
 
-const processURL = (url) => {
-  console.log(url)
-  switch (findProcessor(url)) {
-    case 'RAW_IMAGE':
-      let result = rawProcessor(url)
-      return addImage(url, result.name, result.src)
-    default:
-      return addAlert('warning', { message: 'UNSUPPORTED_URL', url })
+  // Simple logger that dispatch addAlert
+  let logger = (message, style, data) => {
+    dispatch(addAlert(message, url, style, data))
   }
+
+  // Makes the promise to process URL
+  return new Promise((resolve, reject) => {
+    processURL(url, logger, resolve)
+  })
+  // Dispatch addImage on success
+  .then((src) => {
+    dispatch(addImage(url, src))
+  })
+  // Dispatch addAlert on failure or exception (using logger)
+  .catch(({ message, style, data }) => {
+    logger(message, style || 'danger', data)
+  })
 }
 
-const mapStateToProps = (state, selfProps) => {
+const mapStateToProps = (state) => {
   return { }
 }
 
-const mapDispatchToProps = (dispatch, selfProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onSubmit: (e) => {
       e.preventDefault()
 
-      let form = e.target
-      let urls = form.elements['urls'].value.split('\n')
-      urls.map(processURL).map(dispatch)
+      // Clear alerts first
+      dispatch(clearAlert())
+
+      let urls = e.target.elements['urls'].value
+
+      // Start processing URLs
+      urls
+      // Preprocessing
+      .split('\n')
+      .map((url) => url.trim())
+      // Eliminate falsy urls
+      .filter((url) => url)
+      // Perform processing
+      .forEach(promiseURL(dispatch))
     }
   }
 }
