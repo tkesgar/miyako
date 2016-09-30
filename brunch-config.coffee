@@ -21,3 +21,9 @@ module.exports =
       presets: ['latest', 'react']
     postcss:
       processors: [require('postcss-cssnext')]
+
+  overrides:
+    production:
+      # Build to docs folder (for GitHub Pages)
+      paths:
+        public: 'docs'

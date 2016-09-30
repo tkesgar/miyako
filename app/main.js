@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import firebase from 'firebase'
+//import firebase from 'firebase'
 
 import reducer from './reducers'
 
@@ -21,11 +21,11 @@ const FIREBASE_CONFIG = {
 //
 // Development
 // -----------
-const store = createStore(reducer, window.devToolsExtension && window.devToolsExtension())
+// const store = createStore(reducer, window.devToolsExtension && window.devToolsExtension())
 //
 // Production
 // ----------
-// const store = createStore(reducer)
+ const store = createStore(reducer)
 //
 
 render((
@@ -34,4 +34,4 @@ render((
   </Provider>
 ), document.getElementById('app'))
 
-firebase.initializeApp(FIREBASE_CONFIG);
+//firebase.initializeApp(FIREBASE_CONFIG);
