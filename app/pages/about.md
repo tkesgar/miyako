@@ -17,6 +17,8 @@ Also, I want to learn React and Redux.
 ## Notes
 
   - In order to download Facebook photos, you need to login with your Facebook account. This is necessary to get access token for Facebook API.
+  - Firefox has additional security measures:
+    - If you get error `Request has been terminated Possible causes: the network is offline, Origin is not allowed by Access-Control-Allow-Origin, the page is being unloaded, etc.`, it is possible that [Tracking Protection](https://developer.mozilla.org/en-US/Firefox/Privacy/Tracking_Protection) turned on.
   - It is difficult to perform client-side scraping because of various security issues, so we have to either find APIs or write a backend. I choose the former for now, but for sites like Zerochan or Deviantart (who don't have any API, as far as I am aware) I might end up creating a backend anyway.
 
 ## Todo

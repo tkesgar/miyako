@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FormInput = ({ onSubmit }) => (
-  <div className="container">
+  <div>
 
     <h2>Input</h2>
 

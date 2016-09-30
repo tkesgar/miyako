@@ -1,11 +1,17 @@
+import fbProcessor from './fb-processor'
+
 const rawProcessor = (url, log, callback) => {
-  callback(url)
+  callback({ id: url, src: url })
 }
 
 export const processors = {
   RAW: {
     pattern: /.*\.(jpeg|jpg|png|gif)/i,
     processor: rawProcessor
+  },
+  FACEBOOK: {
+    pattern: /facebook\.com/i,
+    processor: fbProcessor
   }
 }
 

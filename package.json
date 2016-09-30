@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "watch": "brunch w -s",
-    "clean": "del-cli public/** !public",
+    "clean": "del-cli public/** docs/** !public !docs",
     "build": "brunch b -p"
   },
   "repository": {
@@ -25,9 +25,9 @@
     "del-cli": "^0.2.0",
     "javascript-brunch": "^2.0.0",
     "less-brunch": "^2.7.1",
+    "markdown-brunch": "^1.7.2",
     "postcss-brunch": "^0.5.0",
     "postcss-cssnext": "^2.8.0",
-    "rollup-brunch": "0.0.3",
     "uglify-js-brunch": "^2.0.1"
   },
   "dependencies": {
@@ -35,6 +35,8 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
-    "redux": "^3.6.0"
+    "react-router": "^2.8.1",
+    "redux": "^3.6.0",
+    "superagent": "^2.3.0"
   }
 }

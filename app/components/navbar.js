@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 const Navbar = () => (
   <nav className="navbar navbar-inverse navbar-static-top">
@@ -11,10 +12,14 @@ const Navbar = () => (
           <span className="icon-bar"></span>
           <span className="icon-bar"></span>
         </button>
-        <a className="navbar-brand" href="#">Miyako</a>
+        <Link className="navbar-brand" to="/">Miyako</Link>
       </div>
 
       <div className="collapse navbar-collapse" id="mainNavbar">
+        <ul className="nav navbar-nav">
+          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/about">About</Link></li>
+        </ul>
         <ul className="nav navbar-nav navbar-right">
           <li><a href="https://github.com/tkesgar/miyako" target="_blank">View on GitHub</a></li>
         </ul>

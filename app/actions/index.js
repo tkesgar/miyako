@@ -7,13 +7,11 @@
            Using actual URL from user is good idea.
    src     Image source URL.
  */
-export const addImage = (id, src) => {
-  return {
-    type: 'ADD_IMAGE',
-    id,
-    src
-  }
-}
+export const addImage = (id, src) => ({
+  type: 'ADD_IMAGE',
+  id,
+  src
+})
 
 /**
    REMOVE_IMAGE
@@ -22,12 +20,10 @@ export const addImage = (id, src) => {
 
    id    Unique identifier for the image to be deleted.
  */
-export const removeImage = (id) => {
-  return {
-    type: 'REMOVE_IMAGE',
-    id
-  }
-}
+export const removeImage = (id) => ({
+  type: 'REMOVE_IMAGE',
+  id
+})
 
 /**
    ADD_ALERT
@@ -39,22 +35,28 @@ export const removeImage = (id) => {
    style      Extra style (for contextual state)
    data       Extra data to describe the alert.
  */
-export const addAlert = (message, url, style, data) => {
-  return {
-    type: 'ADD_ALERT',
-    message,
-    url,
-    style,
-    data
-  }
-}
+export const addAlert = (message, url, style, data) => ({
+  type: 'ADD_ALERT',
+  message,
+  url,
+  style,
+  data
+})
 
 /**
    CLEAR_ALERT
    Completely clears the alert list.
  */
-export const clearAlert = () => {
-  return {
-    type: 'CLEAR_ALERT'
-  }
-}
+export const clearAlert = () => ({
+  type: 'CLEAR_ALERT'
+})
+
+/**
+   ADD_LOGIN
+   Adds a login information.
+ */
+export const addLogin = (provider, data) => ({
+  type: 'ADD_LOGIN',
+  provider,
+  data
+})

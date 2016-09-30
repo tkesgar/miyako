@@ -5,11 +5,17 @@ import ImageListContainer from '../containers/image-list-container'
 import Navbar from './navbar'
 import Footer from './footer'
 
-const App = () => (
-  <div>
-    <Navbar />
+export const Home = () => (
+  <div className="container">
     <FormInputContainer />
     <ImageListContainer />
+  </div>
+)
+
+const App = ({ children }) => (
+  <div>
+    <Navbar />
+    { children }
     <Footer />
   </div>
 )

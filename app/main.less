@@ -28,7 +28,7 @@ body {
   }
 }
 
-// Form input
+// Form input container
 .form-input {
   textarea {
 
@@ -42,13 +42,22 @@ body {
   }
 }
 
+// Image list container
+.image-list {
+
+  // Allow alerts to break long URLs
+  .alert {
+    word-wrap: break-word;
+  }
+}
+
 // Full width for Empty image list well
-.image-list-empty.well {
+.images-empty.well {
   width: 100%;
 }
 
 // Flex image list container
-.image-list {
+.images {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
