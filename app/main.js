@@ -5,25 +5,22 @@ import { Provider } from 'react-redux'
 import firebase from 'firebase'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 
+import config from './config'
 import reducer from './reducers'
 
 import App, { Home } from './components/app'
 import LoginContainer from './containers/login-container'
 import About from './components/about'
 
-//
-// TODO Switch to development or production
-//
-// Development
-// -----------
-// const store = createStore(reducer, window.devToolsExtension && window.devToolsExtension())
-//
-// Production
-// ----------
- const store = createStore(reducer)
-//
+// Create Redux store
+let store
+if (config.env === 'development') {
+  store = createStore(reducer, window.devToolsExtension && window.devToolsExtension())
+} else {
+  store = createStore(reducer)
+}
 
-// Make store state available for imports
+// Make store state available for import
 export const getState = () => store.getState()
 
 // Render app
@@ -40,11 +37,4 @@ render((
 ), document.getElementById('app'))
 
 // Initialize Firebase
-const firebaseConfig = {
-  apiKey: 'AIzaSyDApJOhS407dti-RZ0630pJxcNdvt1Yngg',
-  authDomain: 'miyako-4f2df.firebaseapp.com',
-  databaseURL: 'https://miyako-4f2df.firebaseio.com',
-  storageBucket: '',
-  messagingSenderId: '543115397544'
-}
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config.firebase);

@@ -23,6 +23,7 @@
     "clean-css-brunch": "^2.0.0",
     "css-brunch": "^2.6.1",
     "del-cli": "^0.2.0",
+    "environment-brunch": "^1.0.0",
     "javascript-brunch": "^2.0.0",
     "less-brunch": "^2.7.1",
     "markdown-brunch": "^1.7.2",

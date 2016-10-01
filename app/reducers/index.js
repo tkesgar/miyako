@@ -4,10 +4,8 @@ import images from './images'
 import alerts from './alerts'
 import logins from './logins'
 
-const reducer = combineReducers({
+export default combineReducers({
   images,
   alerts,
   logins
 })
-
-export default reducer

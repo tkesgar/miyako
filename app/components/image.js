@@ -7,7 +7,8 @@ const Image = ({ src, onRemove }) => (
         <img className="panel-image" src={ src } />
       </div>
       <div className="panel-footer">
-        <a href={ src } target="_blank" className="btn btn-default">Download</a>
+        {/* HTML5 download attribute works on Chrome but not Firefox due to security issues */}
+        <a href={ src } download target="_blank" className="btn btn-default">Download</a>
         <button type="button" className="btn btn-danger pull-right" onClick={ onRemove }>Remove</button>
       </div>
     </div>

@@ -2,7 +2,7 @@ import request from 'superagent'
 import { getState } from '../main'
 
 const GRAPH_API_URL = 'https://graph.facebook.com/v2.7/'
-
+const STEP = 100
 const URL_PATTERNS = [
   /album_id=(\d*)/i,
   /\/photos\/.*\/(.*)\//i
@@ -24,6 +24,26 @@ const fbProcessor = (url, logger, callback) => {
           callback(body)
         }
       })
+  }
+
+  // Helper to make recursive album request
+  const makeAlbumRequestRecursive = (id, token, callback, count, urls, offset) => {
+    console.log(count, urls, offset)
+    if (offset >= count) {
+      // Base: nothing left to get, return urls
+      callback(urls)
+    } else {
+      // Recurrence: add new urls, offset + STEP
+      let fields = `photos.offset(${offset}).limit(${STEP}){images{source}}`
+      makeRequest(id, token, { fields }, (data) => {
+        let photos = data.photos.data
+        let newUrls = photos.map((photo, index) => ({
+          id: `${id}_${offset + index}`,
+          src: photo.images[0].source
+        }))
+        makeAlbumRequestRecursive(id, token, callback, count, [...urls, ...newUrls], offset + STEP)
+      })
+    }
   }
 
   let state = getState()
@@ -51,13 +71,16 @@ const fbProcessor = (url, logger, callback) => {
     let type = data.metadata.type
     switch (type) {
       case 'album':
-        makeRequest(id, token, { fields: 'photos{images{source}}' }, (data) => {
+        let fields = `photos.limit(${STEP}){images{source}},photo_count`
+        makeRequest(id, token, { fields }, (data) => {
+          let count = data.photo_count
           let photos = data.photos.data
           let urls = photos.map((photo, index) => ({
             id: `${id}_${index}`,
             src: photo.images[0].source
           }))
-          callback(urls)
+          // makeAlbumRequestRecursive will immediately callback if offset >= count
+          makeAlbumRequestRecursive(id, token, callback, count, urls, STEP)
         })
         break
       case 'photo':

@@ -35,6 +35,6 @@ From [Hidamari Sketch](https://en.wikipedia.org/wiki/Hidamari_Sketch).
 
 ![Miyako laughing](http://www.ilbazardimari.net/wp-content/uploads/Hidamari-sketch-6.gif)
 
-## Licence
+## License
 
 [MIT License](LICENSE)
