@@ -4,7 +4,8 @@ const image = (state = {}, action) => {
     case 'ADD_IMAGE':
       return {
         id: action.id,
-        src: action.src
+        src: action.src,
+        name: action.name
       }
 
     default:

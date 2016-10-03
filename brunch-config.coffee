@@ -3,14 +3,12 @@ module.exports =
   files:
     javascripts: joinTo:
       'lib.js': /^(?!app)/
-      'app.js': /^(app)/
+      'app.js': /^app/
+      'test.js': /^app\/test/
     stylesheets: joinTo:
       'lib.css': /^(?!app)/
-      'app.css': /^(app)/
+      'app.css': /^app/
     templates: joinTo: 'app.js'
-
-  server:
-    hostname: '0.0.0.0'
 
   watcher:
     awaitWriteFinish: true
@@ -21,9 +19,3 @@ module.exports =
       presets: ['latest', 'react']
     postcss:
       processors: [require('postcss-cssnext')]
-
-  overrides:
-    production:
-      # Build to docs folder (for GitHub Pages)
-      paths:
-        public: 'docs'
