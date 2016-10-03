@@ -30,7 +30,7 @@ app.get('/api', (request, response) => {
       if (status) {
         response.json({ result: data })
       } else {
-        response.json({ error: data })
+        response.json({ error: data.message })
       }
     })
   }

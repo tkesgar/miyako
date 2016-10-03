@@ -10,7 +10,14 @@ export const run = url => new Promise((resolve, reject) => {
       if (error) {
         reject(error)
       } else {
-        resolve(response.body.result)
+        let data = response.body
+        if (data.error) {
+          // error
+          reject(new Error(data.error))
+        } else {
+          // success
+          resolve(data.result)
+        }
       }
     })
 })
