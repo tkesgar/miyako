@@ -10,7 +10,7 @@
     "watch": "run-p watch:*",
     "clean": "del-cli public/** !public",
     "build": "brunch b -p && del-cli public/test**",
-    "serve": "node server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
