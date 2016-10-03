@@ -9,9 +9,8 @@
     "watch:app": "brunch w",
     "watch": "run-p watch:*",
     "clean": "del-cli public/** !public",
-    "build": "brunch b -p && del-cli public/test**",
-    "start": "node server.js",
-    "postinstall": "npm run build"
+    "build": "npm run clean && brunch b -p && del-cli public/test**",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
