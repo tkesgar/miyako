@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Alert = ({ message, url, style, data }) => (
-  <div className={`alert alert-${ style || 'info' }`}>
+const Alert = ({ message, url, state, data }) => (
+  <div className={`alert alert-${ state || 'info' }`}>
     <p><strong>{ url }: </strong> { message }</p>
   </div>
 )

@@ -6,11 +6,13 @@
    id      Unique identifier for the image.
            Using actual URL from user is good idea.
    src     Image source URL.
+   name    Image name.
  */
-export const addImage = (id, src) => ({
+export const addImage = (id, src, name) => ({
   type: 'ADD_IMAGE',
   id,
-  src
+  src,
+  name
 })
 
 /**
@@ -29,18 +31,15 @@ export const removeImage = (id) => ({
    ADD_ALERT
    Adds an alert message to alert list.
 
+   url        URL involved in alert.
    message    String that stores the message.
-              This allows alert to receive Error.message.
-   url        URL involved in alert. (Optional)
-   style      Extra style (for contextual state)
-   data       Extra data to describe the alert.
- */
-export const addAlert = (message, url, style, data) => ({
+   state      Contextual state.
+*/
+export const addAlert = (url, message, state = 'info') => ({
   type: 'ADD_ALERT',
-  message,
   url,
-  style,
-  data
+  message,
+  state
 })
 
 /**
@@ -49,14 +48,4 @@ export const addAlert = (message, url, style, data) => ({
  */
 export const clearAlert = () => ({
   type: 'CLEAR_ALERT'
-})
-
-/**
-   ADD_LOGIN
-   Adds a login information.
- */
-export const addLogin = (provider, data) => ({
-  type: 'ADD_LOGIN',
-  provider,
-  data
 })
