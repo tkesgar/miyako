@@ -3,10 +3,14 @@
   "version": "0.2.1",
   "description": "Simple app to download photos and photo albums",
   "private": true,
+  "main": "server.js",
   "scripts": {
-    "watch": "brunch w -s",
-    "clean": "del-cli public/** docs/** !public !docs",
-    "build": "brunch b -p"
+    "watch:server": "nodemon server.js --ignore public/",
+    "watch:app": "brunch w",
+    "watch": "run-p watch:*",
+    "clean": "del-cli public/** !public",
+    "build": "brunch b -p && del-cli public/test**",
+    "serve": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -27,12 +31,16 @@
     "javascript-brunch": "^2.0.0",
     "less-brunch": "^2.7.1",
     "markdown-brunch": "^1.7.2",
+    "nodemon": "^1.10.2",
+    "npm-run-all": "^3.1.0",
     "postcss-brunch": "^0.5.0",
     "postcss-cssnext": "^2.8.0",
     "uglify-js-brunch": "^2.0.1"
   },
   "dependencies": {
-    "firebase": "^3.4.1",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-rate-limit": "^2.5.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",

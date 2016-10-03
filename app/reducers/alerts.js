@@ -3,10 +3,9 @@ const alerts = (state = [], action) => {
 
     case 'ADD_ALERT':
       let alert = {
-        message: action.message,
         url: action.url,
-        style: action.style,
-        data: action.data
+        message: action.message,
+        state: action.state
       }
       return [...state, alert]
 

@@ -1,8 +1,11 @@
 import React from 'react'
 
-const Image = ({ src, onRemove }) => (
+const Image = ({ src, name, onRemove }) => (
   <div className="image">
     <div className="panel panel-default">
+      <div className="panel-heading">
+        { name }
+      </div>
       <div className="panel-body">
         <img className="panel-image" src={ src } />
       </div>

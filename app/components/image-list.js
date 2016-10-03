@@ -21,6 +21,7 @@ const ImageList = ({ images, alerts, onRemoveImage }) => (
         <Image
           key={ image.id }
           src={ image.src }
+          name={ image.name }
           onRemove={ () => onRemoveImage(image.id) }
         />
         ))
