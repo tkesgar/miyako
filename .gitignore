@@ -39,6 +39,3 @@ node_modules
 
 # Ignore public
 public
-
-# Config
-miyako-config.json
