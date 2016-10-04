@@ -46,6 +46,7 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-rate-limit": "^2.5.0",
+    "firebase": "^3.4.1",
     "superagent": "^2.3.0"
   }
 }

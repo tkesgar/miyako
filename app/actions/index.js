@@ -49,3 +49,8 @@ export const addAlert = (url, message, state = 'info') => ({
 export const clearAlert = () => ({
   type: 'CLEAR_ALERT'
 })
+
+export const addLogin = user => ({
+  type: 'ADD_LOGIN',
+  user
+})
