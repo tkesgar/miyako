@@ -2,11 +2,9 @@ const image = (state = {}, action) => {
   switch (action.type) {
 
     case 'ADD_IMAGE':
-      return {
-        id: action.id,
-        src: action.src,
-        name: action.name
-      }
+      let id = action.id
+      let data = action.data
+      return { id, data }
 
     default:
       return state
@@ -20,7 +18,7 @@ const images = (state = [], action) => {
       return [...state, image(undefined, action)]
 
     case 'REMOVE_IMAGE':
-      return state.filter((x) => x.id != action.id)
+      return state.filter(x => x.id != action.id)
 
     default:
       return state

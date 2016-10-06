@@ -1,46 +1,69 @@
 {
   "name": "miyako",
   "version": "0.3.3",
-  "description": "Simple app to download photos and photo albums",
+  "description": "Photos and images downloader app",
   "private": true,
   "main": "server.js",
+  "homepage": "http://tkesgar-miyako.herokuapp.com",
+  "keywords": [
+    "photo",
+    "image",
+    "download",
+    "website"
+  ],
   "scripts": {
-    "watch:server": "nodemon server.js --ignore public/",
-    "watch:app": "brunch w",
-    "watch": "run-p watch:*",
+    "watch:server": "nodemon server.js --ignore public/ --ignore app/",
+    "watch:app": "brunch watch",
+    "watch": "npm-run-all --parallel watch:*",
     "clean": "del-cli public/** !public",
-    "build": "npm run clean && brunch b -p && del-cli public/test**",
-    "start": "node server.js"
+    "build": "brunch build --production && del-cli public/test**",
+    "all": "npm-run-all clean build"
+  },
+  "engines": {
+    "node": ">=5.11.0",
+    "npm": ">=3.1.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tkesgar/miyako.git"
   },
-  "author": "Ted Kesgar <t.kesgar@live.com>",
+  "bugs": {
+    "url": "https://github.com/tkesgar/miyako/issues",
+    "email": "t.kesgar@live.com"
+  },
+  "author": "Ted Kesgar <t.kesgar@live.com> (https://tkesgar.com)",
+  "contributors": [
+    "Ted Kesgar <t.kesgar@live.com> (https://tkesgar.com)"
+  ],
   "license": "MIT",
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",
     "babel-brunch": "^6.0.6",
     "babel-preset-latest": "^6.14.0",
     "babel-preset-react": "^6.16.0",
+    "bowser": "^1.4.6",
     "brunch": "^2.8.2",
     "clean-css-brunch": "^2.0.0",
     "css-brunch": "^2.6.1",
     "del-cli": "^0.2.0",
     "environment-brunch": "^1.0.0",
     "javascript-brunch": "^2.0.0",
+    "js-md5": "^0.4.1",
+    "json-brunch": "^1.5.4",
     "less-brunch": "^2.7.1",
     "markdown-brunch": "^1.7.2",
+    "marked": "^0.3.6",
     "nodemon": "^1.10.2",
     "npm-run-all": "^3.1.0",
     "postcss-brunch": "^0.5.0",
     "postcss-cssnext": "^2.8.0",
-    "uglify-js-brunch": "^2.0.1",
     "react": "^15.3.2",
+    "react-bootstrap": "^0.30.5",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "uglify-js-brunch": "^2.0.1"
   },
   "dependencies": {
     "body-parser": "^1.15.2",

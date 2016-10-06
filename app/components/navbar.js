@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router'
+import NavbarLogin from '../containers/NavbarLogin'
 
-const Navbar = () => (
-  <nav className="navbar navbar-inverse navbar-static-top">
+export default () => (
+  <nav className="navbar navbar-default navbar-static-top">
     <div className="container">
 
       <div className="navbar-header">
-        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNavbar">
+        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
           <span className="sr-only">Toggle navigation</span>
           <span className="icon-bar"></span>
           <span className="icon-bar"></span>
@@ -15,18 +16,13 @@ const Navbar = () => (
         <Link className="navbar-brand" to="/">Miyako</Link>
       </div>
 
-      <div className="collapse navbar-collapse" id="mainNavbar">
+      <div className="collapse navbar-collapse" id="navbar">
         <ul className="nav navbar-nav">
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/about">About</Link></li>
-        </ul>
-        <ul className="nav navbar-nav navbar-right">
           <li><a href="https://github.com/tkesgar/miyako" target="_blank">View on GitHub</a></li>
         </ul>
+        <NavbarLogin />
       </div>
 
     </div>
   </nav>
 )
-
-export default Navbar

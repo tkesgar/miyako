@@ -1,26 +1,14 @@
 /**
-   ADD_IMAGE
-   Adds a new image to list.
-   Currently does not check whether image already exists.
-
-   id      Unique identifier for the image.
-           Using actual URL from user is good idea.
-   src     Image source URL.
-   name    Image name.
+  Adds a single image to list.
  */
-export const addImage = (id, src, name) => ({
+export const addImage = (id, data) => ({
   type: 'ADD_IMAGE',
   id,
-  src,
-  name
+  data
 })
 
 /**
-   REMOVE_IMAGE
-   Removes an image with given identifier from list.
-   Currently does not check whether image exists.
-
-   id    Unique identifier for the image to be deleted.
+  Removes a single image from the list.
  */
 export const removeImage = (id) => ({
   type: 'REMOVE_IMAGE',
@@ -28,29 +16,41 @@ export const removeImage = (id) => ({
 })
 
 /**
-   ADD_ALERT
-   Adds an alert message to alert list.
-
-   url        URL involved in alert.
-   message    String that stores the message.
-   state      Contextual state.
-*/
-export const addAlert = (url, message, state = 'info') => ({
+ * Adds an alert message for user.
+ */
+export const addAlert = (url, message) => ({
   type: 'ADD_ALERT',
   url,
-  message,
-  state
+  message
 })
 
 /**
-   CLEAR_ALERT
-   Completely clears the alert list.
+ * Clears the alert message.
  */
 export const clearAlert = () => ({
   type: 'CLEAR_ALERT'
 })
 
-export const addLogin = user => ({
-  type: 'ADD_LOGIN',
+/**
+ * Login as user.
+ */
+export const login = user => ({
+  type: 'LOGIN',
   user
+})
+
+/**
+ * Logout as user.
+ */
+export const logout = () => ({
+  type: 'LOGOUT'
+})
+
+/**
+ * Sets a key to value.
+ */
+export const setValue = (key, value) => ({
+  type: 'SET_VALUE',
+  key,
+  value
 })

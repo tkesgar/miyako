@@ -1,101 +1,26 @@
-@import 'https://fonts.googleapis.com/css?family=Space+Mono';
+@import 'https://fonts.googleapis.com/css?family=Inconsolata';
 
-.monospace() {
-  font-family: 'Space Mono', monospace;
+// Monospace mixin
+.monospace()
+{
+  font-family: 'Inconsolata', monospace;
 }
 
-/*
-  Using System UI Fonts In Web Design: A Quick Practical Guide
-  https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
-*/
-body {
-  font-family:
-    -apple-system, BlinkMacSystemFont,
-    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-}
-
-// Larger font size and line height
-body {
-  font-size: 16px;
-  line-height: 1.5;
-
-  // Safeguard for really small screens
-  @media (max-width: 480px) {
-    font-size: 14px;
-    line-height: 1.428;
-  }
-}
-
-// Form input container
-.form-input {
-  textarea {
-
+// URL form
+.form-url
+{
+  // Add padding
+  padding: 40px 0;
+  // Url input
+  input[type=url]
+  {
     // Change font style
     .monospace();
-    font-size: 14px;
-    line-height: 1.428;
-
-    // Only allow vertical resizing
-    resize: vertical;
-  }
-}
-
-// Image list container
-.image-list {
-
-  // Allow alerts to break long URLs
-  .alert {
-    word-wrap: break-word;
-  }
-}
-
-// Full width for Empty image list well
-.images-empty.well {
-  width: 100%;
-}
-
-// Flex image list container
-.images {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-
-  .image {
-    flex: 0 1 auto;
-    padding: 10px;
-
-    width: 100% / 2;
-    @media (min-width: 768px) { width: 100% / 3; }
-    @media (min-width: 992px) { width: 100% / 4; }
-    @media (min-width: 1200px) { width: 100% / 5; }
-  }
-}
-
-// Custom styling for image panel
-.image {
-
-  // Change font style, allow breaks on filenames
-  .panel-heading {
-    .monospace();
-    font-size: 14px;
-    line-height: 1;
-    word-wrap: break-word;
-  }
-
-  // Allows image to fill the panel width
-  .panel-body {
-    padding: 0;
-  }
-  .panel-image {
-    width: 100%;
-    height: auto;
   }
 }
 
 // Footer
-.footer {
+#footer {
 
   // Use smaller font size
   font-size: 14px;
@@ -109,4 +34,121 @@ body {
   background: #f8f8f8;
   color: #777;
   border-top: 1px solid #e7e7e7;
+}
+
+// ---------------------------------------------------------------------------
+// Direct images
+// ---------------------------------------------------------------------------
+
+// Flex direct image list container
+.images {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+
+  .image {
+    flex: 0 1 auto;
+    padding: 10px;
+
+    width: 100%;
+    @media (min-width: 768px) { width: 100% / 2; }
+    @media (min-width: 992px) { width: 100% / 3; }
+    @media (min-width: 1200px) { width: 100% / 4; }
+  }
+}
+
+// Custom styling for image panel
+.image {
+
+  // Change font style, allow breaks on filenames
+  .panel-heading {
+    .monospace();
+    font-size: 14px;
+    line-height: 1;
+    word-wrap: break-word;
+    text-transform: lowercase;
+  }
+
+  // Allows image to fill the panel width
+  .panel-body {
+    overflow: hidden;
+    padding: 0;
+  }
+  .panel-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// FB images
+// ---------------------------------------------------------------------------
+
+// Flex FB image list container
+.fb-images {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+
+  .fb-image {
+    flex: 0 1 auto;
+
+    width: 100%;
+    @media (min-width: 992px) { width: 100% / 2; }
+  }
+}
+
+// Custom styling for fb-image panel
+.fb-image {
+
+  // Allows image to fill the panel width
+  .panel-body {
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .panel-image {
+    width: 100%;
+    height: auto;
+  }
+
+  // Image description
+  .panel-content {
+    padding: 15px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// FB album
+// ---------------------------------------------------------------------------
+
+// Flex FB album list container
+.fb-album {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+
+  .fb-album-image {
+    flex: 0 1 auto;
+
+    width: 100%;
+    @media (min-width: 768px) { width: 100% / 3; }
+    @media (min-width: 992px) { width: 100% / 4; }
+    @media (min-width: 1200px) { width: 100% / 5; }
+  }
+}
+
+// Custom styling for fb-album panel
+.fb-album-image {
+  padding: 10px;
+
+  // Allows image to fill the panel width
+  .panel-body {
+    overflow: hidden;
+    padding: 0;
+  }
+  .panel-image {
+    width: 100%;
+    height: auto;
+  }
 }

@@ -1,32 +1,30 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import firebase from 'firebase'
-import reducer from './reducers'
 
-import App, { Home } from './components/app'
-import Login from './containers/login-container'
-import { About } from './components/page'
-import { addLogin } from './actions'
+import { login } from './actions'
+import config from './config'
+import reducer from './reducer'
 
-// environment const
-// BRUNCH_ENVIRONMENT will be replaced by environment-brunch
-const env = 'BRUNCH_ENVIRONMENT'
+import App from './components/App'
+import Home from './components/Home'
+
+// Redux store middlewares
+const middlewares = []
 
 // Create Redux store
 let store
-if (env === 'development') {
-  // Development
-  store = createStore(reducer, window.devToolsExtension && window.devToolsExtension())
+if ('BRUNCH_ENVIRONMENT' === 'development') {
+  // Development: Use Redux DevTools extension if available
+  let devTools = window.devToolsExtension ? window.devToolsExtension() : f => f
+  store = createStore(reducer, compose(applyMiddleware(...middlewares), devTools))
 } else {
   // Production
-  store = createStore(reducer)
+  store = createStore(reducer, applyMiddleware(...middlewares))
 }
-
-// Make store state available for import
-export const getState = () => store.getState()
 
 // Render app
 render((
@@ -34,22 +32,38 @@ render((
     <Router history={ browserHistory }>
       <Route path="/" component={ App }>
         <IndexRoute component={ Home } />
-        <Route path="about" component={ About } />
-        <Route path="login" component={ Login } />
+        <Route path="login" component={ Home } />
       </Route>
     </Router>
   </Provider>
 ), document.getElementById('app'))
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDApJOhS407dti-RZ0630pJxcNdvt1Yngg",
-  authDomain: "miyako-4f2df.firebaseapp.com",
-  databaseURL: "https://miyako-4f2df.firebaseio.com",
-  storageBucket: "miyako-4f2df.appspot.com",
-  messagingSenderId: "543115397544"
-}
-firebase.initializeApp(firebaseConfig)
+// Initialize Firebase
+firebase.initializeApp(config.firebase)
 
-firebase.auth().onAuthStateChanged(user => {
-  store.dispatch(addLogin(user))
+// Firebase auth
+const auth = firebase.auth()
+
+// Subscribe on auth state changes.
+// This also means we don't have to dispatch auth actions on login/logout.
+auth.onAuthStateChanged(user => {
+  if (user) {
+    // User is logged in
+    store.dispatch(login(user))
+  } else {
+    // No user
+    store.dispatch(logout(user))
+  }
 })
+
+// Export getState() for import in other modules
+export const getState = () => store.getState()
+
+// Export getToken() for getting tokens
+export const getToken = callback => {
+  if (callback) {
+    return auth.getToken().then(callback)
+  } else {
+    return auth.getToken()
+  }
+}

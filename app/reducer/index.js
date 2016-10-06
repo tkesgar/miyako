@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux'
 
 import images from './images'
-import alerts from './alerts'
-import login from './login'
+import values from './values'
+import alert from './alert'
+import user from './user'
 
 export default combineReducers({
+  values,
   images,
-  alerts,
-  login
+  alert,
+  user
 })
