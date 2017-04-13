@@ -10,7 +10,7 @@ const app = express()
 
 firebase.initializeApp({
   serviceAccount: JSON.parse(process.env.SERVICE_ACCOUNT),
-  databaseURL: "https://miyako-4f2df.firebaseio.com"
+  databaseURL: "https://miyako-f17ec.firebaseio.com"
 })
 
 // Enable if behind reverse proxy (Heroku)
