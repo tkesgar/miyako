@@ -1,0 +1,54 @@
+{
+  "name": "miyako",
+  "version": "1.0.0",
+  "description": "Photos and images downloader app",
+  "private": true,
+  "main": "server.js",
+  "homepage": "https://miyako.tkesgar.com",
+  "keywords": [
+    "photo",
+    "image",
+    "download",
+    "website"
+  ],
+  "scripts": {
+    "watch": "brunch watch --server",
+    "clean": "del-cli public/** !public",
+    "build": "brunch build --production",
+    "all": "npm-run-all clean build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkesgar/miyako.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tkesgar/miyako/issues",
+    "email": "t.kesgar@live.com"
+  },
+  "author": "Ted Kesgar <t.kesgar@live.com> (https://tkesgar.com)",
+  "contributors": [
+    "Ted Kesgar <t.kesgar@live.com> (https://tkesgar.com)"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "auto-reload-brunch": "^2.7.1",
+    "babel-brunch": "^6.1.1",
+    "babel-preset-env": "^1.4.0",
+    "brunch": "^2.10.9",
+    "clean-css-brunch": "^2.10.0",
+    "css-brunch": "^2.10.0",
+    "del-cli": "^0.2.1",
+    "javascript-brunch": "^2.10.0",
+    "less-brunch": "^2.10.0",
+    "postcss-brunch": "^2.0.5",
+    "postcss-cssnext": "^2.10.0",
+    "standard": "^10.0.2",
+    "uglify-js-brunch": "^2.10.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "ejs-brunch": "^1.0.2",
+    "jquery": "^3.2.1",
+    "superagent": "^3.5.2"
+  }
+}
