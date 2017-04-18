@@ -9,6 +9,12 @@ module.exports =
       'app.css': /^app/
     templates: joinTo: 'app.js'
 
+  npm:
+    styles:
+      bootstrap: ['dist/css/bootstrap.css']
+    globals:
+      jQuery: 'jquery'
+
   plugins:
     babel:
       presets: ['env']
