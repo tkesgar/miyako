@@ -1,6 +1,6 @@
 {
   "name": "miyako",
-  "version": "1.0.0",
+  "version": "0.4.0",
   "description": "Photos and images downloader app",
   "private": true,
   "main": "server.js",
@@ -14,8 +14,10 @@
   "scripts": {
     "watch": "brunch watch --server",
     "clean": "del-cli public/** !public",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
     "build": "brunch build --production",
-    "all": "npm-run-all clean build"
+    "all": "npm-run-all lint clean build"
   },
   "repository": {
     "type": "git",
@@ -34,21 +36,28 @@
     "auto-reload-brunch": "^2.7.1",
     "babel-brunch": "^6.1.1",
     "babel-preset-env": "^1.4.0",
+    "babel-preset-react": "^6.24.1",
     "brunch": "^2.10.9",
     "clean-css-brunch": "^2.10.0",
     "css-brunch": "^2.10.0",
     "del-cli": "^0.2.1",
     "javascript-brunch": "^2.10.0",
     "less-brunch": "^2.10.0",
+    "npm-run-all": "^4.0.2",
     "postcss-brunch": "^2.0.5",
     "postcss-cssnext": "^2.10.0",
+    "replacer-brunch": "github:tkesgar/replacer-brunch",
     "standard": "^10.0.2",
     "uglify-js-brunch": "^2.10.0"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "ejs-brunch": "^1.0.2",
     "jquery": "^3.2.1",
-    "superagent": "^3.5.2"
+    "jszip": "^3.1.3",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router-dom": "^4.1.1",
+    "redux": "^3.6.0"
   }
 }
