@@ -46,7 +46,7 @@
     "npm-run-all": "^4.0.2",
     "postcss-brunch": "^2.0.5",
     "postcss-cssnext": "^2.10.0",
-    "replacer-brunch": "github:tkesgar/replacer-brunch",
+    "replacer-brunch": "^1.0.1",
     "standard": "^10.0.2",
     "uglify-js-brunch": "^2.10.0"
   },
