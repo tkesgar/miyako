@@ -1,6 +1,6 @@
 {
   "name": "miyako",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "Photos and images downloader app",
   "private": true,
   "main": "server.js",
