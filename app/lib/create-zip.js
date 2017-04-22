@@ -13,7 +13,7 @@ function createZip (urls, progress) {
       if (arrayBuffer) {
         let file = utils.getFullFilename(url)
         let ext = utils.getFileExt(url)
-        progress(++urlCompleted / urls.length, `Downloading ${file}...`)
+        progress((++urlCompleted / urls.length) / 2, `Downloading ${file}...`)
         resolve({
           filename: `${index + 1}.${ext}`,
           arrayBuffer: arrayBuffer
@@ -34,7 +34,7 @@ function createZip (urls, progress) {
       return zip.generateAsync({
         type: 'blob',
         onUpdate: (percent, file) => progress(
-          50 + percent / 20,
+          50 + percent / 2,
           `Compressing ${file}...`
         )
       })
