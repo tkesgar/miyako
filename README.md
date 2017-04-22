@@ -1,8 +1,8 @@
 # Miyako
 
-![Miyako](https://i.imgur.com/yeiiB.gif)
+![Miyako](http://i.imgur.com/RtgQlbR.gif)
 
-Miyako is a simple app to download photos and photo albums from various URLs.
+Miyako is an app to download images from Facebook. It works by making API requests to Facebook Graph API to get the image URLs. For certain node types like albums, Miyako can also compress all of the images into a single ZIP file for one-click download.
 
 I create this to make downloading various reference photos from Internet easier. Downloading all of them one-by-one is a complete waste of time.
 
@@ -10,31 +10,48 @@ Also, I want to learn React and Redux.
 
 ## Supported URLs
 
-  - Direct link (`http://example.com/image.jpg`)
-  - Facebook photo (`https://www.facebook.com/example/123/456/?type=3&theater`)
-  - Facebook album (`https://www.facebook.com/example/photos/?tab=album&album_id=123`)
+  - Currently only `photo` and `album` node type are supported.
+  - API requests are subject to permission scope. The most basic scope only allows access on public nodes (Pages, for example).
+  - Miyako works by extracting the node ID from the provided URL via a bunch of regexes. Since Facebook URLs are subject to change, please [submit an issue](https://github.com/tkesgar/miyako/issues) if you find a URL that Miyako cannot parse.
 
-## Notes
+## Deployment
 
-  - In order to download Facebook photos, you need to login with your Facebook account. This is necessary to get access token for Facebook API.
-  - It is difficult to perform client-side scraping because of various security issues, so we have to either find APIs or write a backend. I choose the former for now, but for sites like Zerochan or Deviantart (who don't have any API, as far as I am aware) I might end up creating a backend anyway.
+You will need these things to get started:
+  - Node.js
+  - npm
+  - Facebook App ID with Facebook Login turned on. You might also need to configure the Site URL settings and Login Callback.
+
+After cloning this repository, run `npm install` to install the dependencies and `npm run build` to compile the source into the `public` folder.
+
+You can now serve the `public` folder with your favourite HTTP server with `pushState` support, for example [pushserve](https://www.npmjs.com/package/pushserve) or [pushstate-server](https://www.npmjs.com/package/pushstate-server).
+
+## Contributing
+
+Contributions are greatly appreciated. Feel free to check things to do below and submit a pull request. You can also find `TODO` comments in the source code, or check the [issues page](https://github.com/tkesgar/miyako/issues).
 
 ## Todo
 
-  - [ ] Add more URL support
-    - [ ] Twitter (possible with Twitter API)
-    - [ ] Zerochan
-    - [ ] Deviantart
-    - [ ] pixiv (there is a bunch of npm packages, but I haven't tested it yet)
-  - [ ] Testing
-  - [ ] Documentation
+  - **Features**
+    - Add more URL support
+      - Permalinks (from Facebook embed)
+      - Videos
+      - Facebook redirection URLs (URLs that change in-between navigations)
+    - Change the filename of downloaded files.
+      - We cannot do this with direct download from image URLs provided by Facebook API. As a workaround, we have to load the image into a `<canvas>` and obtain the blob data.
+    - Modify the downloaded images using `<canvas>` to add some information (for example the author or image owner).
+    - Better user interface and UX flow
+  - **Maintenance**
+    - Testing
+    - Documentation
+    - Better architecture
+      - Let's just say I'm still new to React 🐧
 
 ## Miyako who?
 
 From [Hidamari Sketch](https://en.wikipedia.org/wiki/Hidamari_Sketch).
 
-![Miyako laughing](http://www.ilbazardimari.net/wp-content/uploads/Hidamari-sketch-6.gif)
+![Miyako](http://i.imgur.com/4bgb2CA.gif)
 
 ## License
 
-[MIT License](LICENSE)
+Licensed under [MIT License](LICENSE).
