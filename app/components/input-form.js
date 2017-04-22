@@ -8,7 +8,7 @@ import Auth from 'lib/components/auth'
 const InputForm = ({ user, loading, submit }) => {
   return (
     <form className='my-input-form' onSubmit={(e) => user && !loading ? submit(e) : e.preventDefault()}>
-      <h1>Miyako <small>Facebook pictures downloader</small></h1>
+      <h1>Miyako <small>Facebook images downloader</small></h1>
       <fieldset disabled={loading}>
         <div className='input-group'>
           <input
