@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import $ from 'jquery'
 
+import config from 'config'
 import store from 'store'
 import { userInit, userLogin, userLogout } from 'actions'
 import App from 'components/app'
@@ -25,8 +26,8 @@ $(() => {
 
     // Initialize the SDK.
     FB.init({
-      appId: '1654598901247656',
-      version: 'v2.8',
+      appId: config.appId,
+      version: config.sdkVersion,
       cookie: true
     })
 
