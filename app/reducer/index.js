@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux'
 
-import images from './images'
-import values from './values'
-import alert from './alert'
 import user from './user'
+import message from './message'
+import result from './result'
+import loading from './loading'
+import zip from './zip'
 
 export default combineReducers({
-  values,
-  images,
-  alert,
-  user
+  user,
+  message,
+  result,
+  loading,
+  zip
 })

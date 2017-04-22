@@ -1,18 +1,22 @@
 import React from 'react'
+import { Switch, Route } from 'react-router-dom'
 
-import Navbar from './Navbar'
-import Footer from './Footer'
-import Login from '../containers/Login'
+import Navbar from 'components/navbar'
+import Footer from 'components/footer'
+import Download from 'components/download'
+import Help from 'components/help'
+import About from 'components/about'
 
-const isLogin = path => path.indexOf('/login') != -1
-
-const back = () => window.history.back()
-
-export default ({ location, children }) => (
+const App = () => (
   <div>
     <Navbar />
-    <Login show={ isLogin(location.pathname) } />
-    { children }
+    <Switch>
+      <Route path='/help' component={Help} />
+      <Route path='/about' component={About} />
+      <Route component={Download} />
+    </Switch>
     <Footer />
   </div>
 )
+
+export default App

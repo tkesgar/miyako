@@ -1,0 +1,107 @@
+// Container with small width (for pages).
+.container-thin {
+  max-width: 768px;
+}
+
+.my-input-form {
+  margin: @space-md auto;
+  h1 {
+    margin-top: 0;
+  }
+}
+
+.my-message {
+  margin: @space-md auto;
+}
+
+.my-loading {
+  text-align: center;
+  margin: @space-md auto;
+  padding: @space-md;
+}
+
+.my-result-photo {
+  .my-details {
+    margin-bottom: @space-lg;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: @space-xs 0;
+      }
+    }
+
+    pre {
+      font-family: inherit;
+      font-size: inherit;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.my-result-album {
+  .my-details {
+    margin-bottom: @space-lg;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: @space-xs 0;
+      }
+    }
+
+    pre {
+      font-family: inherit;
+      font-size: inherit;
+    }
+  }
+
+  .my-images {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    .my-image {
+      flex: 1 1 auto;
+      width: 280px;
+
+      .panel {
+        margin: @space-sm;
+        overflow: hidden;
+      }
+
+      .panel-body {
+        padding: 0;
+      }
+
+      .panel-footer {
+        overflow: auto;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .my-zip-progress {
+    .my-bar {
+      margin-bottom: @space-xs;
+    }
+
+    .my-info {
+      margin-bottom: @space-md;
+    }
+  }
+}

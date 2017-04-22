@@ -1,69 +1,48 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import firebase from 'firebase'
+import { BrowserRouter as Router } from 'react-router-dom'
+import $ from 'jquery'
 
-import { login } from './actions'
-import config from './config'
-import reducer from './reducer'
+import store from 'store'
+import { userInit, userLogin, userLogout } from 'actions'
+import App from 'components/app'
 
-import App from './components/App'
-import Home from './components/Home'
-
-// Redux store middlewares
-const middlewares = []
-
-// Create Redux store
-let store
-if ('BRUNCH_ENVIRONMENT' === 'development') {
-  // Development: Use Redux DevTools extension if available
-  let devTools = window.devToolsExtension ? window.devToolsExtension() : f => f
-  store = createStore(reducer, compose(applyMiddleware(...middlewares), devTools))
-} else {
-  // Production
-  store = createStore(reducer, applyMiddleware(...middlewares))
-}
-
-// Render app
+// Render the app.
 render((
-  <Provider store={ store }>
-    <Router history={ browserHistory }>
-      <Route path="/" component={ App }>
-        <IndexRoute component={ Home } />
-        <Route path="login" component={ Home } />
-      </Route>
+  <Provider store={store}>
+    <Router>
+      <App />
     </Router>
   </Provider>
 ), document.getElementById('app'))
 
-// Initialize Firebase
-firebase.initializeApp(config.firebase)
+// Get Facebook FB script.
+$(() => {
+  $.ajaxSetup({ cache: true })
+  $.getScript('//connect.facebook.net/en_GB/sdk.js', () => {
+    const FB = window.FB
 
-// Firebase auth
-const auth = firebase.auth()
+    // Initialize the SDK.
+    FB.init({
+      appId: '1654598901247656',
+      version: 'v2.8',
+      cookie: true
+    })
 
-// Subscribe on auth state changes.
-// This also means we don't have to dispatch auth actions on login/logout.
-auth.onAuthStateChanged(user => {
-  if (user) {
-    // User is logged in
-    store.dispatch(login(user))
-  } else {
-    // No user
-    store.dispatch(logout(user))
-  }
+    // Get user initial status.
+    FB.getLoginStatus((response) => {
+      store.dispatch(response.status === 'connected'
+        ? userLogin(response.authResponse)
+        : userInit())
+    })
+
+    // Subscribe auth handler to auth events.
+    FB.Event.subscribe('auth.login', (response) => {
+      store.dispatch(userLogin(response.authResponse))
+    })
+    FB.Event.subscribe('auth.logout', () => {
+      store.dispatch(userLogout())
+    })
+  })
 })
-
-// Export getState() for import in other modules
-export const getState = () => store.getState()
-
-// Export getToken() for getting tokens
-export const getToken = callback => {
-  if (callback) {
-    return auth.getToken().then(callback)
-  } else {
-    return auth.getToken()
-  }
-}

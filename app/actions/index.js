@@ -1,56 +1,63 @@
-/**
-  Adds a single image to list.
- */
-export const addImage = (id, data) => ({
-  type: 'ADD_IMAGE',
-  id,
-  data
+export const userInit = () => ({
+  type: 'USER_LOGOUT'
 })
 
-/**
-  Removes a single image from the list.
- */
-export const removeImage = (id) => ({
-  type: 'REMOVE_IMAGE',
-  id
-})
-
-/**
- * Adds an alert message for user.
- */
-export const addAlert = (url, message) => ({
-  type: 'ADD_ALERT',
-  url,
-  message
-})
-
-/**
- * Clears the alert message.
- */
-export const clearAlert = () => ({
-  type: 'CLEAR_ALERT'
-})
-
-/**
- * Login as user.
- */
-export const login = user => ({
-  type: 'LOGIN',
+export const userLogin = (user) => ({
+  type: 'USER_LOGIN',
   user
 })
 
-/**
- * Logout as user.
- */
-export const logout = () => ({
-  type: 'LOGOUT'
+export const userLogout = () => ({
+  type: 'USER_LOGOUT'
 })
 
-/**
- * Sets a key to value.
- */
-export const setValue = (key, value) => ({
-  type: 'SET_VALUE',
-  key,
-  value
+export const messageSet = (status, content) => ({
+  type: 'MESSAGE_SET',
+  status,
+  content
+})
+
+export const messageClear = () => ({
+  type: 'MESSAGE_CLEAR'
+})
+
+export const resultSet = (result) => ({
+  type: 'RESULT_SET',
+  result
+})
+
+export const resultClear = () => ({
+  type: 'RESULT_CLEAR'
+})
+
+export const loadingStart = () => ({
+  type: 'LOADING_START'
+})
+
+export const loadingFinish = () => ({
+  type: 'LOADING_FINISH'
+})
+
+export const zipStart = () => ({
+  type: 'ZIP_START'
+})
+
+export const zipProgress = (progress, info) => ({
+  type: 'ZIP_PROGRESS',
+  progress,
+  info
+})
+
+export const zipError = (error) => ({
+  type: 'ZIP_ERROR',
+  error
+})
+
+export const zipFinish = (url) => ({
+  type: 'ZIP_FINISH',
+  url
+})
+
+export const zipClear = () => ({
+  type: 'ZIP_CLEAR'
 })
