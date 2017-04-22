@@ -21,7 +21,10 @@ You will need these things to get started:
   - npm
   - Facebook App ID with Facebook Login turned on. You might also need to configure the Site URL settings and Login Callback.
 
-After cloning this repository, run `npm install` to install the dependencies and `npm run build` to compile the source into the `public` folder.
+After cloning this repository, run these steps bellow:
+  - `npm install` to install the dependencies.
+  - Copy `app/_config.sample.js` into `app/config.js` and modify it as neccessary.
+  - `npm run build` to compile the source into the `public` folder.
 
 You can now serve the `public` folder with your favourite HTTP server with `pushState` support, for example [pushserve](https://www.npmjs.com/package/pushserve) or [pushstate-server](https://www.npmjs.com/package/pushstate-server).
 
