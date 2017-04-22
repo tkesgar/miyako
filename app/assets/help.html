@@ -1,2 +1,16 @@
-<h1>Help</h1>
-<p>TBD</p>
+<h1><a id="Help_0"></a>Help</h1>
+<p>Miyako is an app to download Facebook images from a Facebook URL by requesting the image sources from Facebook API. For certain URL types such as Albums, Miyako can help you downloading all of them at once as a ZIP file. You can also download some informations about the images.</p>
+<h2><a id="Downloadable_URLs_4"></a>Downloadable URLs</h2>
+<ul>
+<li>Only public URLs from Pages that can be downloaded by Miyako. Images and albums from personal user accounts cannot be downloaded due to limited app permission scope (even public albums).</li>
+<li>Miyako tries to recognize the required post, image, or album ID from the URL. However, if you encounter URLs that cannot be downloaded, please <a href="https://github.com/tkesgar/miyako/issues">report this to us</a>.</li>
+</ul>
+<h2><a id="Known_Issues_9"></a>Known Issues</h2>
+<h3><a id="Firefox_Tracking_Protection_11"></a>Firefox Tracking Protection</h3>
+<p>If you use <a href="https://developer.mozilla.org/en-US/Firefox/Privacy/Tracking_Protection">Tracking Protection</a> in Firefox browsers, you might enconter errors with Miyako. This is because Miyako uses Facebook JavaScript SDK, which is blocked by Tracking Protection.</p>
+<h3><a id="Large_Facebook_albums_15"></a>Large Facebook albums</h3>
+<p>Since all image downloads and ZIP processings are done in your browser, Miyako might crash when downloading Facebook albums containing thousands of images (for example, Timeline Photo albums) or many high-quality images (Miyako always picks up the highest quality images available).</p>
+<h2><a id="Running_Miyako_locally_19"></a>Running Miyako locally</h2>
+<p>You can run Miyako locally if you want to use your own Facebook Application ID (if you are really that paranoid). Please read the instructions at the <a href="https://github.com/tkesgar/miyako">GitHub repository</a>.</p>
+<h2><a id="Contributing_23"></a>Contributing</h2>
+<p>We are open for contributions. List of possible improvements are available at the <a href="https://github.com/tkesgar/miyako">GitHub repository</a>.</p>
