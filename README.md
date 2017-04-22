@@ -41,10 +41,10 @@ Contributions are greatly appreciated. Feel free to check things to do below and
     - Modify the downloaded images using `<canvas>` to add some information (for example the author or image owner).
     - Better user interface and UX flow
   - **Maintenance**
+    - Use markdown and compile the help page (`marked-brunch` is out of date)
     - Testing
     - Documentation
-    - Better architecture
-      - Let's just say I'm still new to React 🐧
+    - Better architecture (let's just say I'm still new to React 🐧)
 
 ## Miyako who?
 
