@@ -117,10 +117,16 @@ const ResultAlbum = ({ result }) => {
             <li>
               <span className='text-muted'>Images:</span> {result.images.length}
             </li>
-            <li>
-              <div className='text-muted'>Description:</div>
-              <pre>{result.description}</pre>
-            </li>
+            {
+              result.description
+              ? (
+                <li>
+                  <div className='text-muted'>Description:</div>
+                  <pre>{result.description}</pre>
+                </li>
+              )
+              : null
+            }
             <li>
               <a className='btn btn-default'
                 href={utils.createObjectURL(result)}
