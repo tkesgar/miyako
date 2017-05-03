@@ -1,0 +1,14 @@
+{
+  // Specify the environment from NODE_ENV or BRUNCH_ENV (default: 'development').
+  // See http://brunch.io/docs/config for more information.
+  "development": {
+    // Facebook application ID to use. Miyako only requires the default permissions.
+    "appId": "<insert Facebook development app id here>",
+    // Miyako runs with v2.8, but it should work with older or newer versions as well.
+    "sdkVersion": "v2.8"
+  },
+  "production": {
+    "appId": "<insert Facebook production app id here>",
+    "sdkVersion": "v2.8"
+  }
+}

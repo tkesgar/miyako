@@ -1,3 +1,6 @@
+const glob = require('glob')
+const fs = require('fs')
+const marked = require('marked')
 const version = require('./package.json').version
 
 const commit = require('child_process')
@@ -38,6 +41,14 @@ module.exports = {
     replacer: {
       dict: [
         {
+          key: /__MIYAKO__/g,
+          value: require('./miyako.json')[process.env.NODE_ENV]
+        },
+        {
+          key: /__ENV__/g,
+          value: process.env.NODE_ENV
+        },
+        {
           key: /__VERSION__/g,
           value: version
         },
@@ -46,6 +57,18 @@ module.exports = {
           value: commit
         }
       ]
+    }
+  },
+  hooks: {
+    preCompile () {
+      let paths = glob.sync('./app/_md/*.md')
+      for (let path of paths) {
+        let md = fs.readFileSync(path).toString()
+        let html = marked(md)
+        let outputPath = path.replace('_md/', 'assets/').replace('.md', '.html')
+        fs.writeFileSync(outputPath, html)
+      }
+      return Promise.resolve()
     }
   }
 }

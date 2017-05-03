@@ -70,5 +70,5 @@ typings/
 # Compiled folder
 public
 
-# Config module
-app/config.js
+# Miyako config file
+miyako.json

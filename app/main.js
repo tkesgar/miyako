@@ -4,10 +4,12 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import $ from 'jquery'
 
-import config from 'config'
 import store from 'store'
 import { userInit, userLogin, userLogout } from 'actions'
 import App from 'components/app'
+
+// Read config from __MIYAKO__ string (replaced by Brunch).
+const config = JSON.parse('__MIYAKO__')
 
 // Render the app.
 render((
