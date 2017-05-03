@@ -8,6 +8,9 @@ const urlPatterns = [
   /facebook\.com\/.*\/posts\/(\d+)/i,
   /facebook\.com\/.*\/photos\/.*\/(\d+)\//i
 ]
+// TODO: /facebook\.com\/.*\/posts\/(\d+)/i = singular posts
+// Can be extracted but must first get the page ID,
+// which is incompatible with current extract flow.
 
 /**
  * Parses the URL for ID and make API requests to get the data.
@@ -124,8 +127,7 @@ function api (path, params) {
         return reject(new Error(`Failed to make API request`))
       } else if (response.error) {
         // API request error.
-        let code = response.error.code
-        return reject(new Error(`API request returned error (code: #${code})`))
+        return reject(Object.assign(new Error(), response.error))
       } else {
         // Request successful.
         return resolve(response)
