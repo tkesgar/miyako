@@ -105,3 +105,24 @@
     }
   }
 }
+
+.my-footer {
+  text-align: center;
+
+  & > ul {
+    list-style-type: none;
+    margin: @space-sm;
+    padding: 0;
+
+    li {
+      display: inline-block;
+    }
+
+    li + li {
+      &:before {
+        content: '\2237';
+        margin: @space-sm;
+      }
+    }
+  }
+}
