@@ -24,6 +24,7 @@ const Navbar = () => (
       <div id='mainNavbar' className='collapse navbar-collapse'>
         <ul className='nav navbar-nav'>
           <li><Link to='/help'>Help</Link></li>
+          <li><Link to='/policy'>Policy</Link></li>
           <li><a href='https://github.com/tkesgar/miyako' target='_blank'>View on GitHub</a></li>
         </ul>
         <ul className='nav navbar-nav navbar-right'>
