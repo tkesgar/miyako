@@ -39,12 +39,12 @@ Contributions are greatly appreciated. Feel free to check things to do below and
       - Permalinks (from Facebook embed)
       - Videos
       - Facebook redirection URLs (URLs that change in-between navigations)
+      - Singular links (must get page ID and prepend it to the post ID)
     - Change the filename of downloaded files.
       - We cannot do this with direct download from image URLs provided by Facebook API. As a workaround, we have to load the image into a `<canvas>` and obtain the blob data.
     - Modify the downloaded images using `<canvas>` to add some information (for example the author or image owner).
     - Better user interface and UX flow
   - **Maintenance**
-    - Use markdown and compile the help page (`marked-brunch` is out of date)
     - Testing
     - Documentation
     - Better architecture (let's just say I'm still new to React 🐧)
