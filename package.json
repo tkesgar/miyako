@@ -1,10 +1,10 @@
 {
-  "name": "miyako",
+  "name": "minakami",
   "version": "2.0.0",
   "description": "Photos and images downloader app",
   "private": true,
   "main": "server.js",
-  "homepage": "https://miyako.tkesgar.com",
+  "homepage": "https://minakami.tkesgar.com",
   "keywords": [
     "photo",
     "image",

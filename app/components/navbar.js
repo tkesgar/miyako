@@ -18,17 +18,14 @@ const Navbar = () => (
           <span className='icon-bar' />
           <span className='icon-bar' />
         </button>
-        <Link to='/' className='navbar-brand'>Miyako</Link>
+        <Link to='/' className='navbar-brand'>Minakami</Link>
       </div>
 
       <div id='mainNavbar' className='collapse navbar-collapse'>
         <ul className='nav navbar-nav'>
           <li><Link to='/help'>Help</Link></li>
           <li><Link to='/policy'>Policy</Link></li>
-          <li><a href='https://github.com/tkesgar/miyako' target='_blank'>View on GitHub</a></li>
-        </ul>
-        <ul className='nav navbar-nav navbar-right'>
-          <Auth login={<li><a href='#!' onClick={() => window.FB.logout()}>Log out</a></li>} />
+          <li><a href='https://github.com/tkesgar/miyako/tree/minakami' target='_blank'>View on GitHub</a></li>
         </ul>
       </div>
 

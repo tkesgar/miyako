@@ -4,54 +4,95 @@ import { messageSet, resultSet, loadingStart, loadingFinish } from 'actions'
 import extract from 'lib/extract'
 
 import Auth from 'lib/components/auth'
+import UploadImage from './upload-image'
 
 const InputForm = ({ user, loading, submit }) => {
   return (
-    <form className='my-input-form' onSubmit={(e) => user && !loading ? submit(e) : e.preventDefault()}>
-      <h1>Miyako <small>Facebook images downloader</small></h1>
-      <fieldset disabled={loading}>
-        <div className='input-group'>
+    <form className='my-input-form' onSubmit={handleShare}>
+      <h1>Minakami <small>Share Pixiv URL to social media</small></h1>
+      <div className='form-group'>
+        <input
+          type='url'
+          id='input'
+          className='form-control'
+          placeholder='Paste Pixiv URL to share here'
+          required
+        />
+      </div>
+      <div className='form-group'>
+        <label><b>Post text</b></label>
+        <div className='help-block'>Note that Twitter does not support sharing long text (over 280 characters). <b>Any excess characters will be truncated.</b></div>
+        <textarea
+          className='form-control'
+          placeholder='Insert post text'
+          required
+        />
+      </div>
+      <label><b>Dry run</b></label>
+      <div className='help-block text-muted'>Check this box to simulate the posting to your social media account. No actual posts will be created, and the app will provide notifications instead. This is useful for testing purposes.</div>
+      <div className="checkbox">
+        <label>
           <input
-            type='url'
-            id='input'
-            className='form-control'
-            placeholder='Paste URL to download here'
-            required
+            type='checkbox' defaultChecked
           />
-          <span className='input-group-btn'>
-            <Auth
-              init={
-                <button
-                  className='btn btn-primary'
-                  type='button'
-                  disabled
-                >
-                  Log in with Facebook
-                </button>
-              }
-              notLogin={
-                <button
-                  className='btn btn-primary'
-                  type='button'
-                  onClick={() => window.FB.login()}
-                >
-                  Log in with Facebook
-                </button>
-              }
-              login={
-                <button
-                  className='btn btn-primary'
-                  type='submit'
-                >
-                  Download
-                </button>
-              }
+          {" "}Perform a dry run
+        </label>
+      </div>
+      <div className='row'>
+        <div className='col-md-6 col-sm-8'>
+          <div className='form-group'>
+            <label>
+              <b>Facebook account</b>
+            </label>
+            <div className="checkbox">
+              <label>
+                <input
+                  type='checkbox'
+                />
+                {" "}Share to my Facebook timeline
+              </label>
+              <small className='help-block text-muted'>You can control the view access (Public, Friends Only, etc.) on the permission page.</small>
+            </div>
+          </div>
+          <div className='form-group'>
+            <label htmlFor='facebookPage'>
+              <b>
+                Facebook Page name
+              </b>
+            </label>
+            <input
+              type='url'
+              id='input'
+              className='form-control'
+              placeholder='Facebook page name (e.g. nonaninano)'
             />
-          </span>
+            <small className='help-block text-muted'>Put only your page name here (e.g. <var>nonaninano</var>).</small>
+          </div>
+          <div className='form-group'>
+            <label>
+              <b>
+                Twitter account
+              </b>
+            </label>
+            <input
+              type='url'
+              id='input'
+              className='form-control'
+              placeholder='Twitter account handle (e.g. _ix_2_)'
+            />
+          </div>
         </div>
-      </fieldset>
+      </div>
+      <button type='submit' className='btn btn-lg btn-primary btn-block'>
+        Share
+      </button>
     </form>
   )
+}
+
+function handleShare(e) {
+  e.preventDefault()
+  window.location.href = 'https://l.tkesgar.com/rickroll'
 }
 
 const mapStateToProps = (state) => ({

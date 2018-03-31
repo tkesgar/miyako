@@ -41,10 +41,6 @@ module.exports = {
     replacer: {
       dict: [
         {
-          key: /__MIYAKO__/g,
-          value: require('./miyako.json')[process.env.NODE_ENV]
-        },
-        {
           key: /__ENV__/g,
           value: process.env.NODE_ENV
         },
