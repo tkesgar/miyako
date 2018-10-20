@@ -1,5 +1,7 @@
 # Miyako
 
+> Note: This repository is archived and https://miyako.tkesgar.com is no longer available.
+
 ![Miyako](http://i.imgur.com/RtgQlbR.gif)
 
 Miyako is an app to download images from Facebook. It works by making API requests to Facebook Graph API to get the image URLs. For certain node types like albums, Miyako can also compress all of the images into a single ZIP file for one-click download.
