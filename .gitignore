@@ -69,6 +69,3 @@ typings/
 
 # Compiled folder
 public
-
-# Miyako config file
-miyako.json

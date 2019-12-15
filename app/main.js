@@ -8,9 +8,6 @@ import store from 'store'
 import { userInit, userLogin, userLogout } from 'actions'
 import App from 'components/app'
 
-// Read config from __MIYAKO__ string (replaced by Brunch).
-const config = JSON.parse('__MIYAKO__')
-
 // Render the app.
 render((
   <Provider store={store}>
@@ -28,8 +25,8 @@ $(() => {
 
     // Initialize the SDK.
     FB.init({
-      appId: config.appId,
-      version: config.sdkVersion,
+      appId: '__FACEBOOK_APP_ID__',
+      version: '__FACEBOOK_APP_VERSION__',
       cookie: true
     })
 

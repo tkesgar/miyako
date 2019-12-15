@@ -41,8 +41,12 @@ module.exports = {
     replacer: {
       dict: [
         {
-          key: /__MIYAKO__/g,
-          value: require('./miyako.json')[process.env.NODE_ENV]
+          key: /__FACEBOOK_APP_ID__/g,
+          value: process.env.FACEBOOK_APP_ID
+        },
+        {
+          key: /__FACEBOOK_APP_VERSION__/g,
+          value: process.env.FACEBOOK_APP_VERSION
         },
         {
           key: /__ENV__/g,
